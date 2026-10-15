@@ -1,0 +1,44 @@
+# Secrets / local env
+.env
+.env.local
+.env.*.local
+server/.env
+client/.env
+
+# Dependencies
+node_modules/
+server/.venv/
+venv/
+env/
+
+# Neon CLI leftovers (not used by CompanyOS app)
+.neon
+neon.ts
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Next.js
+client/.next/
+client/out/
+client/tsconfig.tsbuildinfo
+
+# Cursor / agent skills (local only)
+.cursor/
+.agents/
+skills-lock.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
