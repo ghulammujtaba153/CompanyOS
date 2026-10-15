@@ -27,6 +27,9 @@ export default function RegisterOwnerPage() {
   )
 }
 
+
+
+
 function RegisterForm() {
   const router = useRouter()
   const { applySession } = useAuth()
