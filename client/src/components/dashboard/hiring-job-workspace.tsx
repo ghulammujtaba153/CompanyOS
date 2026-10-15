@@ -973,7 +973,11 @@ function CandidateDialog({
     try {
       const result = action()
       if (result.ok) await flushHiringApiSync()
-      onNotice(result.ok ? { ok: true, message: result.message ?? "Done." } : result)
+      onNotice(
+        result.ok
+          ? { ok: true, message: result.message ?? "Done." }
+          : { ok: false, message: result.message ?? "Failed." }
+      )
       if (result.ok && closeOnOk) onClose()
     } finally {
       setBusy(null)

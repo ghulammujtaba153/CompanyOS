@@ -63,7 +63,7 @@ function relativeTime(iso: string) {
 
 type Filter = "all" | "unread" | "mentions"
 
-function mapMention(item: Notification): InboxItem {
+function mapMention(item: Notification & { read: boolean }): InboxItem {
   return {
     id: `mention-${item.id}`,
     title: item.title,

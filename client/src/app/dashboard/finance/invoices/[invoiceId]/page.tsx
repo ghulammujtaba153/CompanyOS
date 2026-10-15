@@ -9,9 +9,9 @@ import { useAuth } from "@/components/auth/auth-provider"
 import { DashboardHeader } from "@/components/dashboard/dashboard-header"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { DetailPageSkeleton } from "@/components/dashboard/page-skeletons"
 import { financeApi, type ApiClientInvoice } from "@/lib/auth-api"
 import {
-import { DetailPageSkeleton } from "@/components/dashboard/page-skeletons"
   formatInvoiceMoney,
   seedClientInvoices,
   type ClientInvoice,

@@ -268,7 +268,7 @@ export default function FinanceInvoicesPage() {
             setInvoices((current) => [
               {
                 id,
-                number: input.number || `INV-${Date.now().toString().slice(-4)}`,
+                number: String(input.number || `INV-${Date.now().toString().slice(-4)}`),
                 clientId: String(input.clientId),
                 clientName: String(input.clientName),
                 engagementId: String(input.engagementId || ""),
