@@ -1,0 +1,454 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans), "Figtree", ui-sans-serif, sans-serif;
+  --font-display: var(--font-display), "Syne", ui-sans-serif, sans-serif;
+  --font-heading: var(--font-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Marketing surface tokens (light) */
+  --mkt-bg: #f3f5f1;
+  --mkt-bg-elevated: #ffffff;
+  --mkt-fg: #0a0c10;
+  --mkt-muted: #3a424d;
+  --mkt-subtle: #5b6470;
+  --mkt-border: rgba(10, 12, 16, 0.12);
+  --mkt-border-strong: rgba(10, 12, 16, 0.18);
+  --mkt-panel: #ffffff;
+  --mkt-panel-soft: rgba(10, 12, 16, 0.035);
+  --mkt-panel-hover: rgba(10, 12, 16, 0.06);
+  --mkt-accent: #5f8f12;
+  --mkt-accent-bright: #6fa516;
+  --mkt-on-accent: #ffffff;
+  --mkt-mint: #0f766e;
+  --mkt-grad-from: #4d7c0f;
+  --mkt-grad-to: #0f766e;
+  --mkt-chip-fg: #3f6212;
+  --mkt-chip-bg: rgba(95, 143, 18, 0.12);
+  --mkt-chip-border: rgba(95, 143, 18, 0.3);
+  --mkt-header: rgba(255, 255, 255, 0.92);
+  --mkt-hero-fade: #f3f5f1;
+  --mkt-hero-veil: rgba(243, 245, 241, 0.45);
+  --mkt-shader-1: #dfe8d4;
+  --mkt-shader-2: #a8c96a;
+  --mkt-shader-3: #5f8f12;
+  --mkt-input-bg: #ffffff;
+  --mkt-glow: rgba(95, 143, 18, 0.14);
+
+  /* App / dashboard tokens — same brand as marketing */
+  --background: #f3f5f1;
+  --foreground: #0a0c10;
+  --card: #ffffff;
+  --card-foreground: #0a0c10;
+  --popover: #ffffff;
+  --popover-foreground: #0a0c10;
+  --primary: #5f8f12;
+  --primary-foreground: #ffffff;
+  --secondary: #e8eedc;
+  --secondary-foreground: #1a2e05;
+  --muted: #e6ebdf;
+  --muted-foreground: #5b6470;
+  --accent: #e8eedc;
+  --accent-foreground: #1a2e05;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(10, 12, 16, 0.12);
+  --input: rgba(10, 12, 16, 0.14);
+  --ring: #5f8f12;
+  --chart-1: #5f8f12;
+  --chart-2: #0f766e;
+  --chart-3: #6fa516;
+  --chart-4: #3f6212;
+  --chart-5: #5b6470;
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0a0c10;
+  --sidebar-primary: #5f8f12;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8eedc;
+  --sidebar-accent-foreground: #1a2e05;
+  --sidebar-border: rgba(10, 12, 16, 0.1);
+  --sidebar-ring: #5f8f12;
+}
+
+.dark {
+  /* Marketing surface tokens (dark) */
+  --mkt-bg: #07090c;
+  --mkt-bg-elevated: #0d1118;
+  --mkt-fg: #f2f4f0;
+  --mkt-muted: #9aa3ae;
+  --mkt-subtle: #6b7280;
+  --mkt-border: rgba(255, 255, 255, 0.08);
+  --mkt-border-strong: rgba(255, 255, 255, 0.16);
+  --mkt-panel: #0d1118;
+  --mkt-panel-soft: rgba(255, 255, 255, 0.03);
+  --mkt-panel-hover: rgba(255, 255, 255, 0.06);
+  --mkt-accent: #b8f34a;
+  --mkt-accent-bright: #d4ff4f;
+  --mkt-on-accent: #0a0c10;
+  --mkt-mint: #6ee7b7;
+  --mkt-grad-from: #d4ff4f;
+  --mkt-grad-to: #6ee7b7;
+  --mkt-chip-fg: #d4ff4f;
+  --mkt-chip-bg: rgba(184, 243, 74, 0.1);
+  --mkt-chip-border: rgba(184, 243, 74, 0.28);
+  --mkt-header: rgba(7, 9, 12, 0.7);
+  --mkt-hero-fade: #07090c;
+  --mkt-hero-veil: rgba(7, 9, 12, 0.55);
+  --mkt-shader-1: #07090c;
+  --mkt-shader-2: #1f3d2e;
+  --mkt-shader-3: #b8f34a;
+  --mkt-input-bg: #0d1118;
+  --mkt-glow: rgba(184, 243, 74, 0.1);
+
+  /* App / dashboard tokens — same brand as marketing */
+  --background: #07090c;
+  --foreground: #f2f4f0;
+  --card: #0d1118;
+  --card-foreground: #f2f4f0;
+  --popover: #0d1118;
+  --popover-foreground: #f2f4f0;
+  --primary: #b8f34a;
+  --primary-foreground: #0a0c10;
+  --secondary: #151b24;
+  --secondary-foreground: #f2f4f0;
+  --muted: #151b24;
+  --muted-foreground: #9aa3ae;
+  --accent: #151b24;
+  --accent-foreground: #f2f4f0;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #b8f34a;
+  --chart-1: #b8f34a;
+  --chart-2: #6ee7b7;
+  --chart-3: #d4ff4f;
+  --chart-4: #9aa3ae;
+  --chart-5: #5b6470;
+  --sidebar: #0d1118;
+  --sidebar-foreground: #f2f4f0;
+  --sidebar-primary: #b8f34a;
+  --sidebar-primary-foreground: #0a0c10;
+  --sidebar-accent: #151b24;
+  --sidebar-accent-foreground: #f2f4f0;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #b8f34a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-background text-foreground;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  input[type="button"]:not(:disabled),
+  input[type="submit"]:not(:disabled),
+  input[type="reset"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Marketing: liquid glass + motion */
+.liquid-glass {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0.5) 42%,
+      rgba(184, 243, 74, 0.12) 100%
+    );
+  backdrop-filter: blur(22px) saturate(165%);
+  -webkit-backdrop-filter: blur(22px) saturate(165%);
+  border: 1px solid rgba(10, 12, 16, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(10, 12, 16, 0.04),
+    0 18px 50px rgba(7, 9, 12, 0.08);
+}
+
+.dark .liquid-glass {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.04) 42%,
+      rgba(184, 243, 74, 0.06) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 50px rgba(7, 9, 12, 0.4);
+}
+
+.liquid-glass-strong {
+  background:
+    linear-gradient(
+      155deg,
+      rgba(95, 143, 18, 0.14) 0%,
+      rgba(255, 255, 255, 0.55) 45%,
+      rgba(15, 118, 110, 0.1) 100%
+    );
+  border-color: rgba(95, 143, 18, 0.28);
+}
+
+.dark .liquid-glass-strong {
+  background:
+    linear-gradient(
+      155deg,
+      rgba(184, 243, 74, 0.16) 0%,
+      rgba(255, 255, 255, 0.06) 45%,
+      rgba(110, 231, 183, 0.1) 100%
+    );
+  border-color: rgba(184, 243, 74, 0.28);
+}
+
+/* Marketing shared UI (theme-aware) */
+.mkt-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background: var(--mkt-accent);
+  padding: 0.875rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--mkt-on-accent);
+  transition: background 150ms ease;
+}
+.mkt-btn-primary:hover {
+  background: var(--mkt-accent-bright);
+}
+
+.mkt-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--mkt-border-strong);
+  background: var(--mkt-panel-soft);
+  padding: 0.875rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--mkt-fg);
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.mkt-btn-secondary:hover {
+  background: var(--mkt-panel-hover);
+  border-color: var(--mkt-border-strong);
+}
+
+.mkt-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--mkt-chip-border);
+  background: var(--mkt-chip-bg);
+  padding: 0.375rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--mkt-chip-fg);
+}
+
+.mkt-gradient-text {
+  background-image: linear-gradient(
+    to right,
+    var(--mkt-grad-from),
+    var(--mkt-grad-to)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mkt-icon-well {
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  background: var(--mkt-chip-bg);
+  color: var(--mkt-accent);
+}
+
+.mkt-section-rule {
+  border-color: var(--mkt-border);
+}
+
+.mkt-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--mkt-border);
+  background: var(--mkt-input-bg);
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--mkt-fg);
+  outline: none;
+}
+.mkt-input:focus {
+  border-color: color-mix(in oklab, var(--mkt-accent) 60%, transparent);
+}
+.mkt-input::placeholder {
+  color: var(--mkt-subtle);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise-delay {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
+}
+
+.animate-rise-delay-3 {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 5.5s ease-in-out infinite;
+}
+
+.marketing-shell,
+.landing-page {
+  --mkt-ink: #07090c;
+  color: var(--mkt-fg);
+  background: var(--mkt-bg);
+}
+
+.dark .marketing-shell,
+.dark .landing-page {
+  --background: #07090c;
+  --foreground: #f2f4f0;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.hiring-board-scroll {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--foreground) 22%, transparent) transparent;
+}
+
+.hiring-board-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.hiring-board-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin-inline: 8px;
+}
+
+.hiring-board-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--foreground) 18%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.hiring-board-scroll::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--foreground) 32%, transparent);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+.interview-enter {
+  animation: interview-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes interview-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

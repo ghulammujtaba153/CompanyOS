@@ -1,0 +1,24 @@
+{
+  "name": "CompanyOS",
+  "short_name": "CompanyOS",
+  "description": "The AI operating system for business. Coordinate people, processes, and AI agents with controlled autonomy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090c",
+  "theme_color": "#07090c",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
